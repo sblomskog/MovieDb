@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\add.png" />
+    <None Remove="Images\check-mark-8-64.png" />
+    <None Remove="Images\checkmark.png" />
+    <None Remove="Images\checkmark2.png" />
+    <None Remove="Images\trashcan.png" />
+    <None Remove="Images\white-square-32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\check-mark-8-64.png" />
+    <Resource Include="Images\checkmark.png" />
+    <Resource Include="Images\checkmark2.png" />
+    <Resource Include="Images\trashcan.png" />
+    <Resource Include="Images\white-square-32.png" />
+  </ItemGroup>
+
+</Project>
