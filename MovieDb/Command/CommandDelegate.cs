@@ -2,14 +2,14 @@
 
 namespace MovieDb.Command
 {
-    public class DelegateCommand : ICommand
+    public class CommandDelegate : ICommand
     {
-        private readonly Action _execute;
-        private readonly Func<bool>? _canExecute;
+        private readonly Action<object?> _execute;
+        private readonly Func<object?, bool>? _canExecute;
 
         public event EventHandler? CanExecuteChanged;
 
-        public DelegateCommand(Action execute, Func<bool>? canExecute = null)
+        public CommandDelegate(Action<object?> execute, Func<object?, bool>? canExecute = null)
         {
             ArgumentNullException.ThrowIfNull(execute);
             _execute = execute;
@@ -20,9 +20,9 @@ namespace MovieDb.Command
 
         public bool CanExecute(object? parameter)
         {
-            return _canExecute is null || _canExecute();
+            return _canExecute is null || _canExecute(parameter);
         }
 
-        public void Execute(object? parameter) => _execute();
+        public void Execute(object? parameter) => _execute(parameter);
     }
 }

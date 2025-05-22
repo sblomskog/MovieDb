@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="MovieDb.View.MovieItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieDb.View"
+             xmlns:viewModel="clr-namespace:MovieDb.ViewModel"            
+             mc:Ignorable="d" >
+    <StackPanel Grid.Column="1" Margin="10">
+        <Label Content="Title"/>
+        <TextBox Text="{Binding SelectedMovie.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+             MaxLength="100" Width="450" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Auto"/>
+        <Label Content="Year"/>
+        <TextBox Text="{Binding SelectedMovie.Year, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+             MaxLength="4" Width="50" HorizontalAlignment="Left"/>
+        <Label Content="Director"/>
+        <TextBox Text="{Binding SelectedMovie.Director, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+             MaxLength="50" Width="450" HorizontalAlignment="Left"/>
+        <CheckBox IsChecked="{Binding SelectedMovie.Own, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+              Margin="0 10 0 0" Content="Own"/>
+        <CheckBox IsChecked="{Binding SelectedMovie.Watched, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+              Margin="0 10 0 0" Content="Watched"/>
+    </StackPanel>
+</UserControl>

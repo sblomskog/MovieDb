@@ -5,23 +5,23 @@ using MovieDb.Model;
 
 namespace MovieDb.ViewModel
 {
-    public class MoviesViewModel : ViewModelBase
+    public class MovieListViewModel : ViewModelBase
     {
         private readonly IMovieDataProvider _movieDataProvider;
         private MovieItemViewModel? _selectedMovie;
 
-        public MoviesViewModel(IMovieDataProvider movieDataProvider)
+        public MovieListViewModel(IMovieDataProvider movieDataProvider)
         {
             this._movieDataProvider = movieDataProvider;
-            AddMovieCommand = new CommandDelegate(AddMovie);
-            DeleteMovieCommand = new CommandDelegate(DeleteMovie, CanDelete);
+            AddMovieCommand = new DelegateCommand(AddMovie);
+            DeleteMovieCommand = new DelegateCommand(DeleteMovie, CanDelete);
         }
 
-        public CommandDelegate AddMovieCommand { get; }
+        public DelegateCommand AddMovieCommand { get; }
 
-        public CommandDelegate DeleteMovieCommand { get; }
+        public DelegateCommand DeleteMovieCommand { get; }
 
-        public ObservableCollection<MovieItemViewModel> Movies { get; } = new();
+        public ObservableCollection<MovieItemViewModel> Movies { get; } = [];
 
         public MovieItemViewModel? SelectedMovie
         {
@@ -50,7 +50,7 @@ namespace MovieDb.ViewModel
             }
         }
 
-        private void AddMovie(object? parameter)
+        private void AddMovie()
         {
             var movie = new Movie
             {
@@ -62,7 +62,7 @@ namespace MovieDb.ViewModel
             SelectedMovie = viewModel;
         }
 
-        private void DeleteMovie(object? parameter)
+        private void DeleteMovie()
         {
             if (SelectedMovie is not null)
             {
@@ -71,6 +71,6 @@ namespace MovieDb.ViewModel
             }
         }
 
-        private bool CanDelete(object? parameter) => SelectedMovie is not null;
+        private bool CanDelete() => SelectedMovie is not null;
     }
 }

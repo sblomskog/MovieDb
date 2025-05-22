@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MovieDb"
         xmlns:view="clr-namespace:MovieDb.View"
         mc:Ignorable="d"
-        Title="Movie DB" d:DesignHeight="600" d:DesignWidth="1000" Height="600" Width="1000" FontSize="16"
+        Title="Movie DB" d:DesignHeight="800" d:DesignWidth="1000" Height="800" Width="1000" FontSize="16"
         ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -14,8 +14,14 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Menu HorizontalAlignment="Left"  FontSize="16">
+        
+        <Menu HorizontalAlignment="Left" FontSize="16">
             <MenuItem Header="_Views">
+                <MenuItem.ItemContainerStyle>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="Margin" Value="-30, 0, 0, 0"/>
+                    </Style>
+                </MenuItem.ItemContainerStyle>
                 <MenuItem Header="_Movies"/>
                 <MenuItem Header="_Configuration"/>
             </MenuItem>

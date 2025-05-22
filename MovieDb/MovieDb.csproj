@@ -13,6 +13,9 @@
     <None Remove="Images\check-mark-8-64.png" />
     <None Remove="Images\checkmark.png" />
     <None Remove="Images\checkmark2.png" />
+    <None Remove="Images\load-movies-160.png" />
+    <None Remove="Images\load-movies-177.png" />
+    <None Remove="Images\save-128.png" />
     <None Remove="Images\trashcan.png" />
     <None Remove="Images\white-square-32.png" />
   </ItemGroup>
@@ -22,6 +25,9 @@
     <Resource Include="Images\check-mark-8-64.png" />
     <Resource Include="Images\checkmark.png" />
     <Resource Include="Images\checkmark2.png" />
+    <Resource Include="Images\load-movies-160.png" />
+    <Resource Include="Images\load-movies-177.png" />
+    <Resource Include="Images\save-128.png" />
     <Resource Include="Images\trashcan.png" />
     <Resource Include="Images\white-square-32.png" />
   </ItemGroup>

@@ -2,10 +2,6 @@
 
 namespace MovieDb.Data
 {
-    public interface IMovieDataProvider
-    {
-        Task<IEnumerable<Movie>?> GetMoviesAsync();
-    }
 
     public class MovieDataProvider : IMovieDataProvider
     {
@@ -70,6 +66,11 @@ namespace MovieDb.Data
                     Owned = true
                 }
             };
+        }
+
+        public Task<bool> SaveMoviesAsync(IEnumerable<Movie> movies)
+        {
+            throw new NotImplementedException();
         }
     }
 }

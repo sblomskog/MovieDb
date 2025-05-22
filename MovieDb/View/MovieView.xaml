@@ -7,7 +7,7 @@
              xmlns:viewModel="clr-namespace:MovieDb.ViewModel"
              xmlns:converter="clr-namespace:MovieDb.Converter"
              x:Class="MovieDb.View.MovieView"
-             mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="1000" d:Background="White">
+             mc:Ignorable="d" d:DesignHeight="700" d:DesignWidth="1000" d:Background="White">
     <UserControl.Resources>
         <converter:BooleanToIconConverter x:Key="BooleanToIconConverter"/>
     </UserControl.Resources>
@@ -22,7 +22,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+
+            <!--Movie List Header-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="BtnAddMovie" Command="{Binding AddMovieCommand}"
                     Margin="10" Padding="4,1,4,1">
@@ -39,8 +42,10 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <ListView x:Name="ListViewMovies" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie, Mode=TwoWay}"
-                      Grid.Row="1" Margin="10,0,10,10">
+
+            <!--Movie List-->
+            <ListView Grid.Row="1" x:Name="ListViewMovies" ItemsSource="{Binding Movies}" SelectedItem="{Binding SelectedMovie, Mode=TwoWay}" 
+                      Margin="10,0,10,10">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}"/>
@@ -63,6 +68,24 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+
+            <!--Movie List Footer-->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="BtnLoadMovies" Command="{Binding LoaddMoviesCommand}"
+                        Margin="10" Padding="4,1,4,1">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/load-movies-177.png" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="Load Movies"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="BtnSaveMovies" Command="{Binding SaveMoviesCommand}"
+                        Margin="10" Padding="4,1,4,1">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Images/save-128.png" Height="14" Margin="0,0,5,0"/>
+                        <TextBlock Text="Save Movies"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
         </Grid>
 
         <!--Movie Details-->
